@@ -1,40 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+My Next.js Project
+This project is a Next.js application that renders items from a JSON file in a well-designed and responsive UI. It allows users to edit the displayed data and features support for dark mode. The project is bootstrapped with create-next-app.
 
-## Getting Started
+Features
+Dynamic rendering of a JSON data file.
+Editing capability for data items.
+Dark mode support using Tailwind CSS.
+Responsive design with SCSS for styling.
+Getting Started
+Prerequisites
+Make sure you have Node.js and npm installed. You can download them from Node.js official website.
 
-First, run the development server:
+Installation
+Clone the Repository: Clone the repository from GitHub and navigate into the project directory.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Install Dependencies: Run the installation command to set up the project dependencies.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Running the Development Server
+To start the development server, run the appropriate command for your package manager. Once the server is running, open your browser and navigate to http://localhost:3000 to view the application.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Project Structure
+The main project structure is as follows:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+graphql
+Copy code
+my-app/
+├── public/
+│   └── data.json              # Sample JSON data file
+├── src/
+│   ├── components/
+│   │   └── ItemList.tsx       # Component for rendering and editing items
+│   ├── hooks/
+│   │   └── useApi.ts          # Custom hook for API requests (future expansion)
+│   ├── pages/
+│   │   ├── _app.tsx           # App-level configurations
+│   │   └── index.tsx          # Main page component
+│   ├── styles/
+│   │   └── globals.scss       # Global SCSS styling
+├── package.json
+└── tsconfig.json
+Implementation Details
+JSON Data Rendering
+The ItemList component is responsible for rendering the JSON data in a visually appealing format. It parses the JSON string and displays the key-value pairs in a structured layout. Each item can be edited directly in the UI.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+When a user clicks the "Edit" button, the corresponding item's value is displayed in a textarea, allowing the user to modify it. Upon clicking "Save," the application attempts to validate the JSON format. If the format is valid, the changes are applied; if not, an error message is displayed.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Dark Mode Support
+The application utilizes CSS variables and Tailwind CSS to provide dark mode support. When the user's system preferences indicate a dark color scheme, the application adjusts the colors of the background and text accordingly.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Responsive Design
+The layout is designed to be responsive, utilizing a grid system that adjusts to the size of the screen. The application is structured to look good on various devices, enhancing user experience across desktops, tablets, and mobile phones.
