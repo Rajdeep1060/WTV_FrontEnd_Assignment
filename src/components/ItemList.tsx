@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 
+type ItemValue = string | ItemObject;  
+interface ItemObject {
+    [key: string]: ItemValue;
+}
+
 type Item = {
     key: string;
-    value: string;
+    value: string; 
 };
 
-const renderObject = (obj: Record<string, any>) => {
+const renderObject = (obj: ItemObject): React.ReactNode => {
     return (
         <div className="object-view">
             {Object.entries(obj).map(([key, value]) => (
@@ -17,7 +22,7 @@ const renderObject = (obj: Record<string, any>) => {
     );
 };
 
-const ItemList: React.FC<{ items: Item[], onEdit: (key: string, value: string) => void }> = ({ items, onEdit }) => {
+const ItemList: React.FC<{ items: Item[]; onEdit: (key: string, value: string) => void }> = ({ items, onEdit }) => {
     const [editingItemKey, setEditingItemKey] = useState<string | null>(null);
     const [editedValue, setEditedValue] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
@@ -25,17 +30,17 @@ const ItemList: React.FC<{ items: Item[], onEdit: (key: string, value: string) =
     const handleEditClick = (itemKey: string, currentValue: string) => {
         setEditingItemKey(itemKey);
         setEditedValue(currentValue);
-        setError(null); // Clear any previous error
+        setError(null); 
     };
 
     const handleSaveClick = (itemKey: string) => {
-        // Validate if the edited value is a valid JSON
+        
         try {
-            JSON.parse(editedValue); // Try parsing to check if it's a valid JSON
+            JSON.parse(editedValue); 
             onEdit(itemKey, editedValue);
             setEditingItemKey(null);
             setError(null);
-        } catch (e) {
+        } catch {
             setError('Invalid JSON format. Please correct the JSON and try again.');
         }
     };
