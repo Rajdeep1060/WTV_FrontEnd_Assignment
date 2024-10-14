@@ -12,29 +12,17 @@ Make sure you have Node.js and npm installed. You can download them from Node.js
 
 Installation
 Clone the Repository:
+git clone https://github.com/Rajdeep1060/WTV_FrontEnd_Assignment.git
+cd WTV_FrontEnd_Assignment
 
-bash
-Copy code
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-Install Dependencies: Run the installation command to set up the project dependencies:
+Install Dependencies:npm install
 
-bash
-Copy code
-npm install
-Running the Development Server
-To start the development server, run the following command:
+To start the development server, run the following command:npm run dev 
 
-bash
-Copy code
-npm run dev
 Once the server is running, open your browser and navigate to http://localhost:3000 to view the application.
 
 Project Structure
 The main project structure is as follows:
-
-graphql
-Copy code
 my-app/
 ├── public/
 │   └── data.json              # Sample JSON data file
@@ -50,6 +38,8 @@ my-app/
 │   │   └── globals.scss       # Global SCSS styling
 ├── package.json
 └── tsconfig.json
+
+
 Implementation Details
 JSON Data Rendering
 The ItemList component is responsible for rendering the JSON data in a visually appealing format. It parses the JSON string and displays the key-value pairs in a structured layout. Each item can be edited directly in the UI.
