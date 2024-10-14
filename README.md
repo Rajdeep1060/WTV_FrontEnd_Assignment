@@ -21,8 +21,6 @@ To start the development server, run the appropriate command for your package ma
 Project Structure
 The main project structure is as follows:
 
-graphql
-Copy code
 my-app/
 ├── public/
 │   └── data.json              # Sample JSON data file
