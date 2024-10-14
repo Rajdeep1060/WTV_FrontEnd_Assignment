@@ -1,6 +1,5 @@
-// src/hooks/useApi.ts
 import axios, { AxiosRequestConfig } from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 
@@ -18,9 +17,9 @@ export function useApi() {
         },
       });
       return response.data;
-    } catch (error:any) {
-      if (error.response?.status === 401) {
-        // Handle token refresh
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error) && error.response?.status === 401) {
+        // Handle token refresh logic here
       }
       throw error;
     }
