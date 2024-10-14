@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode support */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* General styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  @apply text-base;
+}
+
+/* Styling for h1 */
+h1 {
+  @apply text-center text-4xl font-bold text-blue-500 mb-8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Item list container */
+.item-list {
+  @apply grid gap-6 p-4;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/* Individual item card styling */
+.item {
+  @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg p-6 transition-transform;
+}
+
+.item:hover {
+  @apply transform -translate-y-2;
+}
+
+/* Item title */
+.item h3 {
+  @apply text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4;
+}
+
+/* Item content */
+.item-content {
+  @apply text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed;
+}
+
+/* Object item styling */
+.object-view {
+  @apply ml-4;
+}
+
+.object-item {
+  @apply mb-2;
+}
+
+.object-item strong {
+  @apply text-gray-800 dark:text-gray-200 font-bold;
+}
+
+/* Actions for editing and saving */
+.item-actions {
+  @apply flex gap-3;
+}
+
+.item-actions button {
+  @apply bg-blue-500 text-white rounded-md py-2 px-4 transition-colors;
+}
+
+.item-actions button:hover {
+  @apply bg-blue-600;
+}
+
+/* Textarea for editing */
+textarea {
+  @apply w-full rounded-md p-2 border border-gray-300 dark:border-gray-600 resize-none;
+}
+
+/* Error message styling */
+.error-message {
+  @apply text-red-500 text-sm mt-2;
+}
