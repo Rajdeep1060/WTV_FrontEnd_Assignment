@@ -40,10 +40,13 @@ Implementation Details
 JSON Data Rendering
 The ItemList component is responsible for rendering the JSON data in a visually appealing format. It parses the JSON string and displays the key-value pairs in a structured layout. Each item can be edited directly in the UI.
 
-When a user clicks the "Edit" button, the corresponding item's value is displayed in a textarea, allowing the user to modify it. Upon clicking "Save," the application attempts to validate the JSON format. If the format is valid, the changes are applied; if not, an error message is displayed.
+When a user clicks the "Edit" button, the corresponding item's value is displayed in a textarea, allowing the user to modify it.Enter the values in a JSON Format. Upon clicking "Save," the application attempts to validate the JSON format. If the format is valid, the changes are applied; if not, an error message is displayed.
 
 Dark Mode Support
 The application utilizes CSS variables and Tailwind CSS to provide dark mode support. When the user's system preferences indicate a dark color scheme, the application adjusts the colors of the background and text accordingly.
 
 Responsive Design
 The layout is designed to be responsive, utilizing a grid system that adjusts to the size of the screen. The application is structured to look good on various devices, enhancing user experience across desktops, tablets, and mobile phones.
+
+
+Deployed Link - https://wtv-front-end-assignment.vercel.app/
